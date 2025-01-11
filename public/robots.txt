@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /404
+Disallow: /nft
+Disallow: /serviceId
+Disallow: /500
+Disallow: /index
+Disallow: /favicon.ico
+Disallow: /*.js
+Disallow: /*.map
+Disallow: /assets/
+Sitemap: https://wvibes-tx65.vercel.app/sitemap.xml
