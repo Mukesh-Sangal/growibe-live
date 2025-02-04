@@ -21,8 +21,8 @@ const CaseStudies = ({ data, imgDom }) => {
           throw new Error('No case study references found.')
         }
 
-        const username = 'growibes'
-        const password = 'Jaibholenath@1989'
+        const username = process.env.NEXT_PUBLIC_USERNAME
+        const password = process.env.NEXT_PUBLIC_PASSWORD
         const basicAuth = 'Basic ' + btoa(username + ':' + password)
         const csrfResponse = await fetch(`${imgDom}/session/token`)
         const csrfToken = await csrfResponse.text()

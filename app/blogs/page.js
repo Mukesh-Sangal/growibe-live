@@ -13,7 +13,7 @@ const Blog = () => {
 
   // Memoize the backend URL to avoid recomputation
   const backend_url = useMemo(() => process.env.NEXT_PUBLIC_DRUPAL_BASE_URL, [])
-
+console.log(data,'Blog Page')
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -27,7 +27,7 @@ const Services = () => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const backend_url = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL
-
+  console.log(data, 'Services')
   // Fetch data only once
   useEffect(() => {
     const fetchData = async () => {
@@ -65,24 +65,16 @@ const Services = () => {
           return (
             <div key={index} className='container spacing'>
               <div className='flex items-stretch flex-wrap'>
-                {item.map((el, i) => (
-                  <div
-                    key={i}
-                    className={`lg:basis-1/2 w-full ${
-                      i === 0 || i === 3 || i === 4 || i === 7 || i === 8
-                        ? isEven(i)
-                          ? 'bg-sky-600 md:bg-sky-600'
-                          : 'bg-white md:bg-sky-600'
-                        : isEven(i)
-                        ? 'bg-sky-600 md:bg-white'
-                        : 'bg-white md:bg-white'
-                    } `}
-                  >
-                    <ServicesSections
-                      title={el?.field_heading}
-                      desc={el?.field_subheading}
-                      icon={`${backend_url}${el?.field_box_icon}`}
-                      bgColor={
+                {item
+                  .sort(
+                    (a, b) =>
+                      (a.field_service_box_order || 0) -
+                      (b.field_service_box_order || 0)
+                  ) // Sorting based on field_service_box_order
+                  .map((el, i) => (
+                    <div
+                      key={i}
+                      className={`lg:basis-1/2 w-full ${
                         i === 0 || i === 3 || i === 4 || i === 7 || i === 8
                           ? isEven(i)
                             ? 'bg-sky-600 md:bg-sky-600'
@@ -90,28 +82,42 @@ const Services = () => {
                           : isEven(i)
                           ? 'bg-sky-600 md:bg-white'
                           : 'bg-white md:bg-white'
-                      }
-                      color={
-                        i === 0 || i === 3 || i === 4 || i === 7 || i === 8
-                          ? isEven(i)
-                            ? 'text-white md:text-white'
-                            : 'text-sky-600 md:text-white'
-                          : isEven(i)
-                          ? 'text-white md:text-sky-600'
-                          : 'text-sky-600 md:text-sky-600'
-                      }
-                      desColor={
-                        i === 0 || i === 3 || i === 4 || i === 7 || i === 8
-                          ? isEven(i)
-                            ? 'text-white md:text-white'
-                            : 'text-black md:text-white'
-                          : isEven(i)
-                          ? 'text-white md:text-black'
-                          : 'text-black md:text-black'
-                      }
-                    />
-                  </div>
-                ))}
+                      } `}
+                    >
+                      <ServicesSections
+                        title={el.field_heading}
+                        desc={el.field_subheading}
+                        icon={`${backend_url}${el.field_box_icon}`}
+                        bgColor={
+                          i === 0 || i === 3 || i === 4 || i === 7 || i === 8
+                            ? isEven(i)
+                              ? 'bg-sky-600 md:bg-sky-600'
+                              : 'bg-white md:bg-sky-600'
+                            : isEven(i)
+                            ? 'bg-sky-600 md:bg-white'
+                            : 'bg-white md:bg-white'
+                        }
+                        color={
+                          i === 0 || i === 3 || i === 4 || i === 7 || i === 8
+                            ? isEven(i)
+                              ? 'text-white md:text-white'
+                              : 'text-sky-600 md:text-white'
+                            : isEven(i)
+                            ? 'text-white md:text-sky-600'
+                            : 'text-sky-600 md:text-sky-600'
+                        }
+                        desColor={
+                          i === 0 || i === 3 || i === 4 || i === 7 || i === 8
+                            ? isEven(i)
+                              ? 'text-white md:text-white'
+                              : 'text-black md:text-white'
+                            : isEven(i)
+                            ? 'text-white md:text-black'
+                            : 'text-black md:text-black'
+                        }
+                      />
+                    </div>
+                  ))}
               </div>
               <div className='flex justify-center items-center lg:py-8 py-4'>
                 <Link

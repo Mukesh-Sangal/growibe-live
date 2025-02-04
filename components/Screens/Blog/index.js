@@ -19,8 +19,8 @@ const Blogs = ({ data, imgDom }) => {
     try {
       const csrfResponse = await fetch(`${imgDom}/session/token`)
       const csrfToken = await csrfResponse.text()
-      const username = 'growibes' // Replace with actual username
-      const password = 'Jaibholenath@1989' // Replace with actual password
+      const username = process.env.NEXT_PUBLIC_USERNAME
+      const password = process.env.NEXT_PUBLIC_PASSWORD
       const basicAuth = 'Basic ' + btoa(username + ':' + password)
 
       return {
@@ -73,7 +73,7 @@ const Blogs = ({ data, imgDom }) => {
     if (loading) {
       return (
         <>
-        <Loader/>
+          <Loader />
         </>
       )
     }
@@ -89,7 +89,7 @@ const Blogs = ({ data, imgDom }) => {
     if (!paragraphData.length) {
       return (
         <>
-        <Loader/>
+          <Loader />
         </>
       )
     }

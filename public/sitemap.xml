@@ -4,4 +4,34 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
       xmlns:xhtml="http://www.w3.org/1999/xhtml">
-      </urlset>
+      
+	<url>
+		<loc>http://localhost:3000/about</loc>
+		<lastmod>2025-02-04</lastmod>
+	</url>
+
+	<url>
+		<loc>http://localhost:3000/blogs</loc>
+		<lastmod>2025-02-04</lastmod>
+	</url>
+
+	<url>
+		<loc>http://localhost:3000/contact</loc>
+		<lastmod>2025-02-04</lastmod>
+	</url>
+
+	<url>
+		<loc>http://localhost:3000/drupal-services</loc>
+		<lastmod>2025-02-04</lastmod>
+	</url>
+
+	<url>
+		<loc>http://localhost:3000/dxp</loc>
+		<lastmod>2025-02-04</lastmod>
+	</url>
+
+	<url>
+		<loc>http://localhost:3000/what-we-do</loc>
+		<lastmod>2025-02-04</lastmod>
+	</url>
+</urlset>

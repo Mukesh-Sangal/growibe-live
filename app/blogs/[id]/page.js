@@ -8,11 +8,11 @@ export default function Products({ params }) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
   // Memoize the API URL to avoid unnecessary recomputation
   const apipageUrl = useMemo(() => {
     return `${backend_url}/${params.id}?_format=json`
   }, [backend_url, params.id])
+  console.log(data,'Node Blog');
 
   const fetchData = async () => {
     try {
