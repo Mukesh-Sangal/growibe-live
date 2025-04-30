@@ -35,6 +35,7 @@ const Services = () => {
         const apiPageUrl = `${backend_url}/node_title/drupal%20services`
         const apis = await getPageData(apiPageUrl)
         setData(apis)
+        console.log(apis,'Apis')
       } catch (error) {
         console.error('Error fetching services data:', error)
       } finally {
@@ -77,43 +78,44 @@ const Services = () => {
                       className={`lg:basis-1/2 w-full ${
                         i === 0 || i === 3 || i === 4 || i === 7 || i === 8
                           ? isEven(i)
-                            ? 'bg-sky-600 md:bg-sky-600'
-                            : 'bg-white md:bg-sky-600'
+                            ? 'bg-sky-600 lg:bg-sky-600'
+                            : 'bg-white lg:bg-sky-600'
                           : isEven(i)
-                          ? 'bg-sky-600 md:bg-white'
-                          : 'bg-white md:bg-white'
+                          ? 'bg-sky-600 lg:bg-white'
+                          : 'bg-white lg:bg-white'
                       } `}
                     >
                       <ServicesSections
                         title={el.field_heading}
                         desc={el.field_subheading}
                         icon={`${backend_url}${el.field_box_icon}`}
+                        mobileicon={`${backend_url}${el.field_box_mobile_icon}`}
                         bgColor={
                           i === 0 || i === 3 || i === 4 || i === 7 || i === 8
                             ? isEven(i)
-                              ? 'bg-sky-600 md:bg-sky-600'
-                              : 'bg-white md:bg-sky-600'
+                              ? 'bg-sky-600 lg:bg-sky-600'
+                              : 'bg-white lg:bg-sky-600'
                             : isEven(i)
-                            ? 'bg-sky-600 md:bg-white'
-                            : 'bg-white md:bg-white'
+                            ? 'bg-sky-600 lg:bg-white'
+                            : 'bg-white lg:bg-white'
                         }
                         color={
                           i === 0 || i === 3 || i === 4 || i === 7 || i === 8
                             ? isEven(i)
-                              ? 'text-white md:text-white'
-                              : 'text-sky-600 md:text-white'
+                              ? 'text-white lg:text-white'
+                              : 'text-sky-600 lg:text-white'
                             : isEven(i)
-                            ? 'text-white md:text-sky-600'
-                            : 'text-sky-600 md:text-sky-600'
+                            ? 'text-white lg:text-sky-600'
+                            : 'text-sky-600 lg:text-sky-600'
                         }
                         desColor={
                           i === 0 || i === 3 || i === 4 || i === 7 || i === 8
                             ? isEven(i)
-                              ? 'text-white md:text-white'
-                              : 'text-black md:text-white'
+                              ? 'text-white lg:text-white'
+                              : 'text-black lg:text-white'
                             : isEven(i)
-                            ? 'text-white md:text-black'
-                            : 'text-black md:text-black'
+                            ? 'text-white lg:text-black'
+                            : 'text-black lg:text-black'
                         }
                       />
                     </div>
