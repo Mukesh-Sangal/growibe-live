@@ -9,9 +9,9 @@ const ServicesSections = memo(
       >
         <div className='flex items-center gap-4'>
           <picture>
-            <source srcSet={mobileicon} media='(max-width: 767px)' />
-            <source srcSet={icon} media='(min-width: 768px)' />
-            <img
+            <source srcSet={mobileicon} media='(max-width: 768px)' />
+            <source srcSet={icon} media='(min-width: 1024px)' />
+            <Image
               src={icon} // fallback
               alt='Drupal Services'
               className='md:w-[120px] md:h-[120px] w-[80px] h-[80px]'
